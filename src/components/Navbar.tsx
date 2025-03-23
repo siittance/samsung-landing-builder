@@ -40,16 +40,19 @@ const Navbar = () => {
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-8 items-center">
             <a href="#features" className="text-gray-800 hover:text-samsung-blue transition-colors text-sm font-medium">
-              Features
+              Функции
             </a>
             <a href="#testimonials" className="text-gray-800 hover:text-samsung-blue transition-colors text-sm font-medium">
-              Testimonials
+              Отзывы
             </a>
             <a href="#specifications" className="text-gray-800 hover:text-samsung-blue transition-colors text-sm font-medium">
-              Specifications
+              Характеристики
             </a>
-            <a href="#contact" className="bg-samsung-blue text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-opacity-90 transition-all transform hover:scale-[1.03] active:scale-[0.97]">
-              Pre-order Now
+            <a 
+              href="#contact" 
+              className="bg-samsung-blue text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-opacity-90 transition-all transform hover:scale-[1.03] active:scale-[0.97]"
+            >
+              Предзаказ
             </a>
           </div>
           
@@ -74,28 +77,28 @@ const Navbar = () => {
               className="block text-gray-800 hover:text-samsung-blue transition-colors text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Features
+              Функции
             </a>
             <a 
               href="#testimonials" 
               className="block text-gray-800 hover:text-samsung-blue transition-colors text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Testimonials
+              Отзывы
             </a>
             <a 
               href="#specifications" 
               className="block text-gray-800 hover:text-samsung-blue transition-colors text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Specifications
+              Характеристики
             </a>
             <a 
               href="#contact" 
               className="inline-block bg-samsung-blue text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-opacity-90 transition-all"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Pre-order Now
+              Предзаказ
             </a>
           </div>
         </div>

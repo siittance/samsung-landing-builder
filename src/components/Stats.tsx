@@ -70,79 +70,106 @@ const StatItem = ({ number, label, suffix = '', delay }: {
 };
 
 const Stats = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="specifications" className="py-16">
-      <div className="section-container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">The Numbers Speak</h2>
-          <p className="text-gray-600 text-lg animate-fade-in" style={{ animationDelay: '100ms' }}>
-            Galaxy S24 Ultra pushes the boundaries with impressive specifications that set new industry standards.
+    <section id="specifications" className="py-16 relative overflow-hidden">
+      <div className="absolute -z-10 top-1/4 left-0 w-64 h-64 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
+      <div className="absolute -z-10 bottom-0 right-1/4 w-80 h-80 bg-blue-500 rounded-full opacity-5 blur-3xl"></div>
+      
+      <div ref={sectionRef} className="section-container">
+        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Цифры говорят сами за себя</h2>
+          <p className="text-gray-600 text-lg" style={{ animationDelay: '100ms' }}>
+            Galaxy S24 Ultra раздвигает границы с впечатляющими характеристиками, которые устанавливают новые стандарты в отрасли.
           </p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          <StatItem number={200} label="MP Camera Resolution" suffix="MP" delay={0} />
-          <StatItem number={5000} label="Battery Capacity" suffix="mAh" delay={300} />
-          <StatItem number={12} label="GB RAM" suffix="GB" delay={600} />
-          <StatItem number={7} label="Years of OS Updates" delay={900} />
+          <StatItem number={200} label="Разрешение камеры" suffix="МП" delay={0} />
+          <StatItem number={5000} label="Емкость аккумулятора" suffix="мАч" delay={300} />
+          <StatItem number={12} label="Оперативная память" suffix="ГБ" delay={600} />
+          <StatItem number={7} label="Лет обновлений ОС" delay={900} />
         </div>
         
-        <div className="mt-24 bg-white rounded-2xl p-8 subtle-shadow animate-fade-in" style={{ animationDelay: '300ms' }}>
+        <div className={`mt-24 bg-white rounded-2xl p-8 subtle-shadow transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{ transitionDelay: '300ms' }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Key Specifications</h3>
+              <h3 className="text-2xl font-semibold mb-6">Ключевые характеристики</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-samsung-blue mt-2 mr-3"></div>
                   <div>
-                    <span className="font-medium">Display:</span> 6.8" QHD+ Dynamic AMOLED 2X, 120Hz
+                    <span className="font-medium">Дисплей:</span> 6.8" QHD+ Dynamic AMOLED 2X, 120Гц
                   </div>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-samsung-blue mt-2 mr-3"></div>
                   <div>
-                    <span className="font-medium">Processor:</span> Snapdragon 8 Gen 3 for Galaxy
+                    <span className="font-medium">Процессор:</span> Snapdragon 8 Gen 3 для Galaxy
                   </div>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-samsung-blue mt-2 mr-3"></div>
                   <div>
-                    <span className="font-medium">Memory:</span> 12GB RAM with 256GB/512GB/1TB storage
+                    <span className="font-medium">Память:</span> 12ГБ ОЗУ с хранилищем 256ГБ/512ГБ/1ТБ
                   </div>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-samsung-blue mt-2 mr-3"></div>
                   <div>
-                    <span className="font-medium">Battery:</span> 5000mAh with 45W fast charging
+                    <span className="font-medium">Аккумулятор:</span> 5000мАч с быстрой зарядкой 45Вт
                   </div>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Camera System</h3>
+              <h3 className="text-2xl font-semibold mb-6">Система камер</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-samsung-blue mt-2 mr-3"></div>
                   <div>
-                    <span className="font-medium">Main:</span> 200MP, f/1.7, OIS
+                    <span className="font-medium">Основная:</span> 200МП, f/1.7, OIS
                   </div>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-samsung-blue mt-2 mr-3"></div>
                   <div>
-                    <span className="font-medium">Ultra-wide:</span> 12MP, f/2.2, 120° FOV
+                    <span className="font-medium">Сверхширокоугольная:</span> 12МП, f/2.2, 120° FOV
                   </div>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-samsung-blue mt-2 mr-3"></div>
                   <div>
-                    <span className="font-medium">Telephoto:</span> 10MP, f/2.4, 3x optical zoom
+                    <span className="font-medium">Телефото:</span> 10МП, f/2.4, 3x оптический зум
                   </div>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-samsung-blue mt-2 mr-3"></div>
                   <div>
-                    <span className="font-medium">Periscope:</span> 50MP, f/3.4, 5x optical zoom
+                    <span className="font-medium">Перископ:</span> 50МП, f/3.4, 5x оптический зум
                   </div>
                 </li>
               </ul>
