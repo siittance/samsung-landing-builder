@@ -5,26 +5,26 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "Emily Chen",
-    role: "Professional Photographer",
+    name: "Эмили Чен",
+    role: "Профессиональный фотограф",
     image: "https://randomuser.me/api/portraits/women/17.jpg",
-    quote: "The camera system on the S24 Ultra has completely changed my mobile photography workflow. The detail in 200MP mode is incredible, and the AI editing tools save me hours of post-processing.",
+    quote: "Камера S24 Ultra полностью изменила мой подход к мобильной фотографии. Детализация в режиме 200МП просто невероятная, а инструменты редактирования с ИИ экономят часы постобработки.",
     rating: 5
   },
   {
     id: 2,
-    name: "Michael Peterson",
-    role: "Tech Enthusiast",
+    name: "Михаил Петров",
+    role: "Техноэнтузиаст",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    quote: "I've owned every Galaxy flagship since the S7, and the S24 Ultra is by far the most impressive. The performance is blazing fast, and battery life has improved dramatically.",
+    quote: "Я владел каждым флагманом Galaxy начиная с S7, и S24 Ultra безусловно самый впечатляющий. Производительность молниеносная, а время работы батареи значительно улучшилось.",
     rating: 5
   },
   {
     id: 3,
-    name: "Sarah Johnson",
-    role: "Content Creator",
+    name: "Сара Иванова",
+    role: "Контент-криейтор",
     image: "https://randomuser.me/api/portraits/women/63.jpg",
-    quote: "As someone who creates content daily, the S24 Ultra has been a game-changer. The Galaxy AI features help me write better captions and the camera quality is unmatched for social media content.",
+    quote: "Как человек, который ежедневно создает контент, S24 Ultra стал настоящим прорывом. Функции Galaxy AI помогают писать лучшие подписи, а качество камеры не имеет себе равных для создания контента в социальных сетях.",
     rating: 4
   }
 ];
@@ -65,9 +65,9 @@ const Testimonials = () => {
     <section id="testimonials" className="py-24 bg-samsung-gray relative overflow-hidden">
       <div className="section-container relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">What Our Users Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">Что говорят наши пользователи</h2>
           <p className="text-gray-600 text-lg animate-fade-in" style={{ animationDelay: '100ms' }}>
-            Hear from people who have experienced the power of the Galaxy S24 Ultra.
+            Мнения людей, которые уже оценили мощь Galaxy S24 Ultra.
           </p>
         </div>
         
@@ -123,14 +123,14 @@ const Testimonials = () => {
             <button 
               onClick={prevTestimonial}
               className="bg-white rounded-full p-2 shadow-md hover:bg-gray-50 transition-all transform hover:scale-110 focus:outline-none"
-              aria-label="Previous testimonial"
+              aria-label="Предыдущий отзыв"
             >
               <ChevronLeft size={24} className="text-gray-600" />
             </button>
             <button 
               onClick={nextTestimonial}
               className="bg-white rounded-full p-2 shadow-md hover:bg-gray-50 transition-all transform hover:scale-110 focus:outline-none"
-              aria-label="Next testimonial"
+              aria-label="Следующий отзыв"
             >
               <ChevronRight size={24} className="text-gray-600" />
             </button>
@@ -147,7 +147,7 @@ const Testimonials = () => {
                     ? 'bg-samsung-blue w-8' 
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={`Перейти к слайду ${index + 1}`}
               />
             ))}
           </div>
